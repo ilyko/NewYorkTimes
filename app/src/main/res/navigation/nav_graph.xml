@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+        app:startDestination="@id/mainFragment">
+    <fragment
+            app:defaultNavHost="true"
+            android:id="@+id/mainFragment"
+            android:name="com.ilyko.nytimes.ui.main.MainFragment"
+            tools:layout="@layout/fragment_main"
+            android:label="MainFragment">
+        <action
+                android:id="@+id/action_detail"
+                app:destination="@id/articleFragment" app:popUpTo="@+id/mainFragment"/>
+    </fragment>
+    <fragment
+            tools:layout="@layout/fragment_article"
+            android:id="@+id/articleFragment"
+            android:name="com.ilyko.nytimes.ui.detail.ArticleFragment"
+            android:label="ArticleFragment">
+        <argument
+                android:name="articleDto"
+                android:defaultValue="@null"
+                app:nullable="true"
+                app:argType="com.ilyko.nytimes.model.ArticleDto"/>
+    </fragment>
+
+    <!--    app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"-->
+</navigation>
